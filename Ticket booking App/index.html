@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book movie tickets online for the latest blockbusters and classics">
+  <title>CineBook - Online Movie Ticket Booking</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo-container">
+        <h1 class="logo">🎬 CineBook</h1>
+        <p class="tagline">Your Gateway to Cinematic Experiences</p>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#now-showing">Now Showing</a></li>
+          <li><a href="#coming-soon">Coming Soon</a></li>
+          <li><a href="#theaters">Theaters</a></li>
+          <li><a href="#offers">Offers</a></li>
+        </ul>
+      </nav>
+      <div class="user-actions">
+        <button class="btn btn-login"><i class="fas fa-user"></i> Sign In</button>
+        <button class="btn btn-register">Register</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Experience Movies Like Never Before</h2>
+        <p>Book tickets for the latest blockbusters in just a few clicks</p>
+        <div class="search-container">
+          <input type="text" placeholder="Search for movies..." class="search-input">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="now-showing" class="movie-section">
+      <div class="section-header">
+        <h2>Now Showing</h2>
+        <div class="filter-options">
+          <select id="genre-filter" class="filter-select">
+            <option value="all">All Genres</option>
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="drama">Drama</option>
+            <option value="sci-fi">Sci-Fi</option>
+          </select>
+          <select id="language-filter" class="filter-select">
+            <option value="all">All Languages</option>
+            <option value="english">English</option>
+            <option value="hindi">Hindi</option>
+            <option value="regional">Regional</option>
+          </select>
+        </div>
+      </div>
+      <div id="movie-list" class="movie-grid"></div>
+    </section>
+
+    <section id="booking-form" class="booking-container" style="display:none;">
+      <div class="booking-form">
+        <div class="movie-info">
+          <img id="movie-poster" src="" alt="Movie Poster" class="movie-poster">
+          <div class="movie-details">
+            <h2 id="movie-title"></h2>
+            <div class="movie-meta">
+              <span id="movie-rating" class="rating"></span>
+              <span id="movie-duration"></span>
+              <span id="movie-genre"></span>
+            </div>
+            <p id="movie-synopsis" class="synopsis"></p>
+          </div>
+        </div>
+        
+        <div class="booking-details">
+          <h3>Select Showtime</h3>
+          <div id="showtimes" class="showtime-options"></div>
+          
+          <div class="ticket-selection">
+            <h3>Select Tickets</h3>
+            <div class="ticket-types">
+              <div class="ticket-type">
+                <label>Standard</label>
+                <div class="ticket-controls">
+                  <button class="ticket-minus"><i class="fas fa-minus"></i></button>
+                  <input type="number" id="standard-tickets" value="0" min="0" class="ticket-count">
+                  <button class="ticket-plus"><i class="fas fa-plus"></i></button>
+                  <span class="ticket-price">₹200</span>
+                </div>
+              </div>
+              <div class="ticket-type">
+                <label>Premium</label>
+                <div class="ticket-controls">
+                  <button class="ticket-minus"><i class="fas fa-minus"></i></button>
+                  <input type="number" id="premium-tickets" value="0" min="0" class="ticket-count">
+                  <button class="ticket-plus"><i class="fas fa-plus"></i></button>
+                  <span class="ticket-price">₹350</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="total-section">
+              <p>Total: <span id="total-amount">₹0</span></p>
+            </div>
+          </div>
+          
+          <button id="confirm-booking" class="btn btn-primary btn-block">Proceed to Payment</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="confirmation" class="confirmation-section" style="display:none;">
+      <div class="confirmation-card">
+        <div class="confirmation-header">
+          <i class="fas fa-check-circle confirmation-icon"></i>
+          <h2>Booking Confirmed!</h2>
+          <p>Your tickets have been successfully booked</p>
+        </div>
+        
+        <div class="confirmation-details">
+          <div class="detail-row">
+            <span>Booking ID:</span>
+            <span id="booking-id">CINE12345678</span>
+          </div>
+          <div class="detail-row">
+            <span>Movie:</span>
+            <span id="confirmation-movie"></span>
+          </div>
+          <div class="detail-row">
+            <span>Showtime:</span>
+            <span id="confirmation-showtime"></span>
+          </div>
+          <div class="detail-row">
+            <span>Theater:</span>
+            <span id="confirmation-theater"></span>
+          </div>
+          <div class="detail-row">
+            <span>Seats:</span>
+            <span id="confirmation-seats"></span>
+          </div>
+          <div class="detail-row total-row">
+            <span>Total Amount:</span>
+            <span id="confirmation-amount"></span>
+          </div>
+        </div>
+        
+        <div class="confirmation-actions">
+          <button class="btn btn-primary"><i class="fas fa-ticket-alt"></i> View Tickets</button>
+          <button class="btn btn-secondary"><i class="fas fa-envelope"></i> Email Receipt</button>
+        </div>
+        
+        <div class="confirmation-footer">
+          <p>Your tickets have been sent to your registered email and mobile number.</p>
+          <p>Please arrive at least 30 minutes before the showtime.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="coming-soon" class="movie-section">
+      <div class="section-header">
+        <h2>Coming Soon</h2>
+      </div>
+      <div class="coming-soon-grid"></div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>CineBook</h3>
+          <p>Your one-stop destination for all movie ticket bookings across major theaters nationwide.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">Theaters</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Help & Support</h3>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>Subscribe to get updates on new releases and special offers.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address">
+            <button type="submit" class="btn btn-subscribe">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 CineBook. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

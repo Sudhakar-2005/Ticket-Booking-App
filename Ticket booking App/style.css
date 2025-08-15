@@ -1,0 +1,116 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #ff1f5a, #ff6a00);
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* Movie Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Movie Card */
+.movie-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 30px rgba(255, 26, 91, 0.6);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie-card h3 {
+  margin: 0;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  background: rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+/* Booking Form */
+section {
+  margin: 1rem auto;
+  padding: 2rem;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+.poster-preview {
+  max-width: 100%;
+  margin: 1rem 0;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+}
+
+/* Input & Buttons */
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+}
+
+.btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  background: linear-gradient(90deg, #ff1f5a, #ff6a00);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #ff6a00, #ff1f5a);
+  transform: scale(1.05);
+}
+
+/* Confirmation Section */
+#confirmation h2 {
+  color: #00ff99;
+}
